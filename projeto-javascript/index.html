@@ -108,17 +108,37 @@
     }
 
     function mudaClasses() {
+        debugger;
+
         let el = document.getElementById('olamundo');
 
-        el.classList.remove('ola');
+        //el.classList.remove('ola');
 
         el.classList.add('ola-teste');
+
+        // verificando se a classe existe
+        var fonte_um = el.classList.contains("fonte_um");
+        var fonte_dois = el.classList.contains("fonte_dois");
+
+        if (!fonte_um) {
+            el.classList.add('fonte_um');
+        } else if (!fonte_dois) {
+            el.classList.add('fonte_dois');
+        }
     }
 </script>
 
 <style>
     .ola-teste {
         background-color: aqua;
+    }
+    
+    .fonte_um {
+        font-size: 55px;
+    }
+    
+    .fonte_dois {
+        font-size: 5px;
     }
 </style>
 
