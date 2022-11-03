@@ -11,12 +11,12 @@ https://projetos-web-senac.vercel.app/PROJETOS-WEB/aplicativosweb.html
             * implementacao de um menu dropdow
             * Passar para alunos a lista de playlists   
         * apos as 15:30
-            * Introducao a JavaScript, variaveis e tipos de dados, funcoes.
-            * Introducao a API Supabase com sistema unifique-clone e Insomnia.
-            * Criacao de tabelas do banco de dados para o aplicativo.
+            * Introducao a JavaScript, variaveis e tipos de dados, funcoes.            
                 
 # Semana 02 Novembro
     #Aula 07-11-2022   
+        * Introducao a API Supabase com sistema unifique-clone e Insomnia.
+        * Criacao de tabelas do banco de dados para o aplicativo.
         * JavaScript - Manipulacao do DOM e chamadas de APIS REST - SupaBase - unifique-clone
     
     #Aula 08-11-2022   
