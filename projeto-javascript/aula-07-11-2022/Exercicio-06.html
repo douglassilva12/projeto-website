@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Crie uma página contendo 3 miniaturas de imagens e uma div.
+    Ao clicar
+em cada imagem, a imagem clicada deve aparecer no seu tamanho
+original na div. Ex: -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 06</title>
+</head>
+<script>
+    function mudaImagem(nomeImagem) {
+        console.log("imagem => " + nomeImagem);
+        document.querySelector("#imagemMaior").src = "images/" + nomeImagem + ".jpg";
+    }
+</script>
+
+<body>
+    <div>
+        <div class="miniaturas">
+            <img onclick="mudaImagem('crianca')" src="images/crianca.jpg" alt="" width="25" height="25">
+
+            <img onclick="mudaImagem('adulto')" src="images/adulto.jpg" alt="" width="25" height="25">
+
+            <img onclick="mudaImagem('casa')" src="images/casa.jpg" alt="" width="25" height="25">
+        </div>
+        <div class="tamanho-maior">
+            <img id="imagemMaior" src="images/casa.jpg" alt="" width="84" height="84">
+        </div>
+    </div>
+</body>
+
+</html>
