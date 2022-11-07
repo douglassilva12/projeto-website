@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- Crie uma página contendo 3 botões (Pequena, Média e Grande) e uma
+     imagem. Ao clicar no botão Pequena, altere o tamanho da imagem para
+     100x100px. Ao clicar no botão Média, altere o tamanho da imagem para
+     300x300px. Ao clicar no botão Grande, altere o tamanho da imagem para
+     500x500px. -->
+
+<script>
+    function pequena() {
+        document.querySelector("img").width = 100;
+        document.querySelector("img").height = 100;
+    }
+    function media() {
+        document.querySelector("img").width = 300;
+        document.querySelector("img").height = 300;
+    }
+    function grande() {
+        document.querySelector("img").width = 500;
+        document.querySelector("img").height = 500;
+    }
+    function original() {
+        document.querySelector("img").width = 960;
+        document.querySelector("img").height = 645;
+    }
+</script>
+
+<body>
+    <button onclick="pequena()">Pequeno</button>
+    <button onclick="media()">Médio</button>
+    <button onclick="grande()">Grande</button>
+    <button onclick="original()">Original</button>
+    <br><br>
+    <img src="images/criança.jpg" alt="">
+</body>
+
+</html>

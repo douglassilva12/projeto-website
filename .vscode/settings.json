@@ -145,7 +145,7 @@
   "tabnine.experimentalAutoImports" : true,
   "gitlens.codeLens.enabled": false,
   "workbench.iconTheme": "material-icon-theme",
-  "files.autoSave": "off",
+  "files.autoSave": "afterDelay",
   "files.trimTrailingWhitespace": true,
   "java.project.sourcePaths": [
     "src"

@@ -100,7 +100,7 @@ header .navigation .menu {
     user-select: none;
 }
 
-.menu-item > a {
+.menu-item>a {
     color: #fff;
     font-size: 1em;
     text-decoration: none;
@@ -108,7 +108,7 @@ header .navigation .menu {
     padding: 25px 0;
 }
 
-.menu-item > a:hover {
+.menu-item>a:hover {
     color: #469DFF;
     transition: 0.3s;
 }

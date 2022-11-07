@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- Crie uma página contendo 3 miniaturas de imagens e uma div. Ao clicar
+em cada imagem, a imagem clicada deve aparecer no seu tamanho
+original na div. -->
+
+<script>
+    function mudaImagem(nomeImagem) {
+        document.querySelector("#imagemMaior").src = "images/" + nomeImagem + ".jpg";
+    }
+</script>
+
+<body>
+    <div>
+        <div class="miniaturas">
+            <img onclick="mudaImagem('van1')" src="images/van1.jpg" alt="" width="25" height="25">
+            <img onclick="mudaImagem('van2')" src="images/van2.jpg" alt="" width="25" height="25">
+            <img onclick="mudaImagem('van3')" src="images/van3.jpg" alt="" width="25" height="25">
+        </div>
+        <div class="tamanho-maior">
+            <img id="imagemMaior" src="images/van1.jpg" alt="" width="589" height="263">
+        </div>
+    </div>
+</body>
+
+</html>

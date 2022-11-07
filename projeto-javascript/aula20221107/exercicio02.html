@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- Crie uma página HTML com um parágrafo. Ao clicar no parágrafo, altere a
+cor do texto para verde. -->
+
+<script>
+    function mudaCorTexto() {
+        document.querySelector("p").style.color = "green";
+    }
+</script>
+
+<body>
+    <p onclick="mudaCorTexto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab temporibus pariatur modi
+        voluptates numquam ad assumenda consequatur ducimus optio vero blanditiis rerum corrupti veniam accusantium,
+        ullam odio laudantium placeat ut.</p>
+    <button onclick="mudaCorTexto()">Executa javascript</button>
+</body>
+
+</html>

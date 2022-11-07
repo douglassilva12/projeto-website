@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
@@ -46,14 +46,14 @@ body {
     min-height: 400px;
 }
 
-.menu-esquerdo-superior > div >  a {
+.menu-esquerdo-superior>div>a {
     list-style: none;
     text-decoration: none;
     color: aliceblue;
     transition: background-color 300ms ease, border 300ms ease, color 300ms ease;
 }
 
-.menu-esquerdo-superior > div >  a:visited {
+.menu-esquerdo-superior>div>a:visited {
     list-style: none;
 }
 
@@ -160,23 +160,23 @@ button {
     min-height: 100vh;
 }
 
-.about-titulo{
+.about-titulo {
     text-transform: uppercase;
     text-align: center;
 }
 
-.about-sub-titulo{
+.about-sub-titulo {
     text-align: center;
     font-size: 16px;
     color: gray;
 }
 
-.about-list-itens{
+.about-list-itens {
     display: flex;
     font-size: 12px;
 }
 
-.about-item{
+.about-item {
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -200,7 +200,7 @@ button {
     color: green;
 }
 
-.cal-to-action{
+.cal-to-action {
     background-color: #cf404d;
     padding: 40px;
     color: white;
@@ -297,7 +297,7 @@ button {
 }
 
 form textarea {
-  width: 98%;
+    width: 98%;
 }
 
 form input[type=submit] {
