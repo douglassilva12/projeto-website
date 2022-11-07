@@ -2,10 +2,12 @@ function isTesteLocal() {
     return false;
 }
 
-// Load google charts
-google.charts.load('current', {
-    'packages': ['corechart']
-});
+function loaddadosGoogle() {
+    // Load google charts
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+}
 
 // Carrega Grafico de paises
 function gerarGraficoPaises(tipoGrafico) {
@@ -193,9 +195,53 @@ async function callApi(method, port, body, oCall) {
                 // Chama a function por parametor com os dados retornados...
                 oCall(data);
             }
-
         })
         .catch(function(error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
+}
+
+// TESTES DA API DO CLONE DA UNIFIQUE
+function listaFaturasUnifique() {
+
+    let quantidadeAsia = 0;
+    let quantidadeAmericaNorte = 0;
+    let quantidadeAmericaSul = 0;
+    let quantidadeOceania = 0;
+    let quantidadeAfrica = 0;
+    let quantidadeEuropa = 0;
+    let quantidadeAntarctica = 0;
+    let quantidadeIndefinido = 0;
+
+    let port = "countries";
+
+    callApi("GET", port, undefined, function(data) {
+        const paises = data;
+
+        // percorre os paises e conta quantos tem em cada continente
+        paises.forEach(function(oPais, key) {
+            if (oPais.continent != undefined) {
+                if (oPais.continent == "Oceania") {
+                    quantidadeOceania++;
+                } else if (oPais.continent == "North America") {
+                    quantidadeAmericaNorte++;
+                } else if (oPais.continent == "Africa") {
+                    quantidadeAfrica++;
+                } else if (oPais.continent == "Europe") {
+                    quantidadeEuropa++;
+                } else if (oPais.continent == "Antarctica") {
+                    quantidadeAntarctica++;
+                } else if (oPais.continent == "South America") {
+                    quantidadeAmericaSul++;
+                } else if (oPais.continent == "Asia") {
+                    quantidadeAsia++;
+                }
+            } else {
+                quantidadeIndefinido++;
+            }
+        });
+
+        // Preenche os dados na tabela de dados
+
+    });
 }
