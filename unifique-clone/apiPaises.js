@@ -2,7 +2,7 @@ function isTesteLocal() {
     return false;
 }
 
-function loaddadosGoogle() {
+function loadDadosGoogle() {
     // Load google charts
     google.charts.load('current', {
         'packages': ['corechart']
@@ -11,6 +11,7 @@ function loaddadosGoogle() {
 
 // Carrega Grafico de paises
 function gerarGraficoPaises(tipoGrafico) {
+    loadDadosGoogle();
     drawChartCountries(tipoGrafico);
 }
 
