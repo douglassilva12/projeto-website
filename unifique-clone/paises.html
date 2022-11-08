@@ -12,6 +12,7 @@
 <link href="./unifique_files/theme.css" rel="stylesheet">
 <link rel="stylesheet" href="./unifique_files/font-awesome.min.css">
 <link href="./unifique_files/css2" rel="stylesheet">
+
 <link rel="stylesheet" href="./css/styles.css">
 <link rel="stylesheet" href="./css/theme.css">
 
@@ -60,7 +61,7 @@
     }
 </style>
 
-<body>
+<body onload="getPaises()">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript">
@@ -81,10 +82,13 @@
 
         function loadDadosPaises(data) {
             debugger;
+
             const paises = data;
+
             let bodyTable = document.querySelector(".containerTable-body");
             // reset da tabela
             bodyTable.innerHTML = '';
+
             let quantidadeIndefinido = 1;
             // percorre os paises e conta quantos tem em cada continente
             paises.forEach(function (oPais, key) {
@@ -93,7 +97,9 @@
                     id = oPais.id;
                     name = oPais.name;
                     continent = oPais.continent;
+
                     debugger;
+
                     // colocando pais na tabela de html
                     bodyTable.innerHTML += `<tr>
                                             <td>${id}</td>
@@ -103,7 +109,10 @@
                 } else {
                     quantidadeIndefinido++;
                 }
+
             });
+
+
         }
 
         function getUrlBase() {
@@ -144,28 +153,38 @@
 
         async function callApi(method, port, body, oCall) {
             debugger;
+
             if (body == undefined) {
                 body = "";
             }
+
             if (method == undefined) {
                 method = "GET";
             }
+
             if (port == undefined) {
                 port = "ping";
             }
+
             // Define a url
             const url = getUrlBase(port);
+
             console.log("url gerada:" + url);
+
             const myInit = getMyInitFetchApi(method, body);
+
             const promise = await fetch(url, myInit)
                 // Converting the response to a JSON object
                 .then(response => response.json())
                 .then(data => {
+
                     console.log(data);
+
                     if (oCall) {
                         // Chama a function por parametro com os dados retornados...
                         oCall(data);
                     }
+
                 })
                 .catch(function (error) {
                     console.log('There has been a problem with your fetch operation: ' + error.message);

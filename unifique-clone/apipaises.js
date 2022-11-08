@@ -61,11 +61,11 @@ function drawChartCountries(tipoGrafico) {
         port = "countriestest";
     }
 
-    callApi("GET", port, undefined, function(data) {
+    callApi("GET", port, undefined, function (data) {
         const paises = data;
 
         // percorre os paises e conta quantos tem em cada continente
-        paises.forEach(function(oPais, key) {
+        paises.forEach(function (oPais, key) {
             if (oPais.continent != undefined) {
                 if (oPais.continent == "Oceania") {
                     quantidadeOceania++;
@@ -123,19 +123,19 @@ function drawChartCountries(tipoGrafico) {
 }
 
 function getPaginaInicial() {
-    callApi("GET", undefined, undefined, function(data) {});
+    callApi("GET", undefined, undefined, function (data) { });
 }
 
 function getTutoriais() {
-    callApi("GET", "tutoriais", undefined, function(data) {});
+    callApi("GET", "tutoriais", undefined, function (data) { });
 }
 
 function getPaises() {
-    callApi("GET", "countries", undefined, function(data) {});
+    callApi("GET", "countries", undefined, function (data) { });
 }
 
 function getUrlBase(port) {
-    return   "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
+    return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
     //return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
 }
 
@@ -200,7 +200,7 @@ async function callApi(method, port, body, oCall) {
                 oCall(data);
             }
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
 }
@@ -219,11 +219,11 @@ function listaFaturasUnifique() {
 
     let port = "countries";
 
-    callApi("GET", port, undefined, function(data) {
+    callApi("GET", port, undefined, function (data) {
         const paises = data;
 
         // percorre os paises e conta quantos tem em cada continente
-        paises.forEach(function(oPais, key) {
+        paises.forEach(function (oPais, key) {
             if (oPais.continent != undefined) {
                 if (oPais.continent == "Oceania") {
                     quantidadeOceania++;
@@ -252,79 +252,79 @@ function listaFaturasUnifique() {
 
 function drawChartCountriesTest(tipoGrafico) {
 
-            let quantidadeAsia = 0;
-            let quantidadeAmericaNorte = 0;
-            let quantidadeAmericaSul = 0;
-            let quantidadeOceania = 0;
-            let quantidadeAfrica = 0;
-            let quantidadeEuropa = 0;
-            let quantidadeAntarctica = 0;
-            let quantidadeIndefinido = 0;
+    let quantidadeAsia = 0;
+    let quantidadeAmericaNorte = 0;
+    let quantidadeAmericaSul = 0;
+    let quantidadeOceania = 0;
+    let quantidadeAfrica = 0;
+    let quantidadeEuropa = 0;
+    let quantidadeAntarctica = 0;
+    let quantidadeIndefinido = 0;
 
-            let port = "countries";
-            if (isTesteLocal()) {
-                port = "countriestest";
+    let port = "countries";
+    if (isTesteLocal()) {
+        port = "countriestest";
+    }
+
+    callApi("GET", port, undefined, function (data) {
+        const paises = data;
+
+        // percorre os paises e conta quantos tem em cada continente
+        paises.forEach(function (oPais, key) {
+            if (oPais.continent != undefined) {
+                if (oPais.continent == "Oceania") {
+                    quantidadeOceania++;
+                } else if (oPais.continent == "North America") {
+                    quantidadeAmericaNorte++;
+                } else if (oPais.continent == "Africa") {
+                    quantidadeAfrica++;
+                } else if (oPais.continent == "Europe") {
+                    quantidadeEuropa++;
+                } else if (oPais.continent == "Antarctica") {
+                    quantidadeAntarctica++;
+                } else if (oPais.continent == "South America") {
+                    quantidadeAmericaSul++;
+                } else if (oPais.continent == "Asia") {
+                    quantidadeAsia++;
+                }
+            } else {
+                quantidadeIndefinido++;
             }
+        });
 
-            callApi("GET", port, undefined, function(data) {
-                const paises = data;
+        // // apos contar os paises, seta os dados no grafico
+        // // Lista a quantidade de paises por continente
+        // var data = google.visualization.arrayToDataTable([
+        //     ['Task', 'Paises por continente'],
+        //     ['Asia', quantidadeAsia],
+        //     ['Oceania', quantidadeOceania],
+        //     ['America Norte', quantidadeAmericaNorte],
+        //     ['America Sul', quantidadeAmericaSul],
+        //     ['Africa', quantidadeAfrica],
+        //     ['Europa', quantidadeEuropa],
+        //     ['Antartica', quantidadeAntarctica],
+        //     ['Indefinido', quantidadeIndefinido],
+        // ]);
 
-                // percorre os paises e conta quantos tem em cada continente
-                paises.forEach(function(oPais, key) {
-                    if (oPais.continent != undefined) {
-                        if (oPais.continent == "Oceania") {
-                            quantidadeOceania++;
-                        } else if (oPais.continent == "North America") {
-                            quantidadeAmericaNorte++;
-                        } else if (oPais.continent == "Africa") {
-                            quantidadeAfrica++;
-                        } else if (oPais.continent == "Europe") {
-                            quantidadeEuropa++;
-                        } else if (oPais.continent == "Antarctica") {
-                            quantidadeAntarctica++;
-                        } else if (oPais.continent == "South America") {
-                            quantidadeAmericaSul++;
-                        } else if (oPais.continent == "Asia") {
-                            quantidadeAsia++;
-                        }
-                    } else {
-                        quantidadeIndefinido++;
-                    }
-                });
+        // // Optional; add a title and set the width and height of the chart
+        // var options = {
+        //     'title': 'Lista de paises por continente',
+        //     'width': 550,
+        //     'height': 400
+        // };
 
-                // // apos contar os paises, seta os dados no grafico
-                // // Lista a quantidade de paises por continente
-                // var data = google.visualization.arrayToDataTable([
-                //     ['Task', 'Paises por continente'],
-                //     ['Asia', quantidadeAsia],
-                //     ['Oceania', quantidadeOceania],
-                //     ['America Norte', quantidadeAmericaNorte],
-                //     ['America Sul', quantidadeAmericaSul],
-                //     ['Africa', quantidadeAfrica],
-                //     ['Europa', quantidadeEuropa],
-                //     ['Antartica', quantidadeAntarctica],
-                //     ['Indefinido', quantidadeIndefinido],
-                // ]);
+        // // default pega piechart
+        // var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
+        // if (tipoGrafico == "piechart") {
+        //     chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
+        // } else if (tipoGrafico == "linechart") {
+        //     chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
+        // } else if (tipoGrafico == "columm") {
+        //     chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
+        // }
 
-                // // Optional; add a title and set the width and height of the chart
-                // var options = {
-                //     'title': 'Lista de paises por continente',
-                //     'width': 550,
-                //     'height': 400
-                // };
+        // chart.draw(data, options);
+    });
 
-                // // default pega piechart
-                // var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // if (tipoGrafico == "piechart") {
-                //     chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "linechart") {
-                //     chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "columm") {
-                //     chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
-                // }
-
-                // chart.draw(data, options);
-            });
-
-        }
+}
 

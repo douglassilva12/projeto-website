@@ -81,11 +81,11 @@
                 port = "countriestest";
             }
 
-            callApi("GET", port, undefined, function(data) {
+            callApi("GET", port, undefined, function (data) {
                 const paises = data;
 
                 // percorre os paises e conta quantos tem em cada continente
-                paises.forEach(function(oPais, key) {
+                paises.forEach(function (oPais, key) {
                     if (oPais.continent != undefined) {
                         if (oPais.continent == "Oceania") {
                             quantidadeOceania++;
@@ -144,15 +144,15 @@
         }
 
         function getPaginaInicial() {
-            callApi("GET", undefined, undefined, function(data) {});
+            callApi("GET", undefined, undefined, function (data) { });
         }
 
         function getTutoriais() {
-            callApi("GET", "tutoriais", undefined, function(data) {});
+            callApi("GET", "tutoriais", undefined, function (data) { });
         }
 
         function getPaises() {
-            callApi("GET", "countries", undefined, function(data) {});
+            callApi("GET", "countries", undefined, function (data) { });
         }
 
         function getUrlBase(port) {
@@ -241,7 +241,7 @@
                     }
 
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log('There has been a problem with your fetch operation: ' + error.message);
                 });
         }
