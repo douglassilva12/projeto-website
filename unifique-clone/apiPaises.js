@@ -1,4 +1,4 @@
-var TOKEN_SUPABASE = 'your_api_supabase_token';
+var TOKEN_SUPABASE = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E';
 
 function isTesteLocal() {
     return false;
@@ -248,3 +248,82 @@ function listaFaturasUnifique() {
 
     });
 }
+
+function drawChartCountriesTest(tipoGrafico) {
+
+            let quantidadeAsia = 0;
+            let quantidadeAmericaNorte = 0;
+            let quantidadeAmericaSul = 0;
+            let quantidadeOceania = 0;
+            let quantidadeAfrica = 0;
+            let quantidadeEuropa = 0;
+            let quantidadeAntarctica = 0;
+            let quantidadeIndefinido = 0;
+
+            let port = "countries";
+            if (isTesteLocal()) {
+                port = "countriestest";
+            }
+
+            callApi("GET", port, undefined, function(data) {
+                const paises = data;
+
+                // percorre os paises e conta quantos tem em cada continente
+                paises.forEach(function(oPais, key) {
+                    if (oPais.continent != undefined) {
+                        if (oPais.continent == "Oceania") {
+                            quantidadeOceania++;
+                        } else if (oPais.continent == "North America") {
+                            quantidadeAmericaNorte++;
+                        } else if (oPais.continent == "Africa") {
+                            quantidadeAfrica++;
+                        } else if (oPais.continent == "Europe") {
+                            quantidadeEuropa++;
+                        } else if (oPais.continent == "Antarctica") {
+                            quantidadeAntarctica++;
+                        } else if (oPais.continent == "South America") {
+                            quantidadeAmericaSul++;
+                        } else if (oPais.continent == "Asia") {
+                            quantidadeAsia++;
+                        }
+                    } else {
+                        quantidadeIndefinido++;
+                    }
+                });
+
+                // // apos contar os paises, seta os dados no grafico
+                // // Lista a quantidade de paises por continente
+                // var data = google.visualization.arrayToDataTable([
+                //     ['Task', 'Paises por continente'],
+                //     ['Asia', quantidadeAsia],
+                //     ['Oceania', quantidadeOceania],
+                //     ['America Norte', quantidadeAmericaNorte],
+                //     ['America Sul', quantidadeAmericaSul],
+                //     ['Africa', quantidadeAfrica],
+                //     ['Europa', quantidadeEuropa],
+                //     ['Antartica', quantidadeAntarctica],
+                //     ['Indefinido', quantidadeIndefinido],
+                // ]);
+
+                // // Optional; add a title and set the width and height of the chart
+                // var options = {
+                //     'title': 'Lista de paises por continente',
+                //     'width': 550,
+                //     'height': 400
+                // };
+
+                // // default pega piechart
+                // var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
+                // if (tipoGrafico == "piechart") {
+                //     chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
+                // } else if (tipoGrafico == "linechart") {
+                //     chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
+                // } else if (tipoGrafico == "columm") {
+                //     chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
+                // }
+
+                // chart.draw(data, options);
+            });
+
+        }
+
