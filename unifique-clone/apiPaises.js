@@ -1,3 +1,5 @@
+var TOKEN_SUPABASE = 'your_api_supabase_token';
+
 function isTesteLocal() {
     return false;
 }
@@ -16,7 +18,7 @@ function gerarGraficoPaises(tipoGrafico) {
 }
 
 function getTokenSupabase() {
-    return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E";
+    return TOKEN_SUPABASE;
 }
 
 // Draw the chart and set the chart values
