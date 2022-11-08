@@ -21,6 +21,7 @@ https://projetos-web-senac.vercel.app/PROJETOS-WEB/aplicativosweb.html
     
     #Aula 08-11-2022   
         * Explicação de fetch API - https://www.braziljs.org/p/fetch-api-e-o-javascript
+        * Diferencas entre async e defer - https://www.braziljs.org/p/diferencas-entre-async-e-defer
         * JavaScript - Manipulacao do DOM e chamadas de APIS REST - SupaBase - unifique-clone
     
     #Aula 09-11-2022   
