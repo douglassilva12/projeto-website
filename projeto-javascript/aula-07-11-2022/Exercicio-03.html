@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Crie uma página com um parágrafo e dois botões: um “Ocultar” e um
+“Mostrar”.
+ Ao clicar no botão Ocultar, modifique a propriedade
+style.display do parágrafo para none. Ao clicar no botão “Mostrar”, altere a
+propriedade style.display do parágrafo para block.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function mostrar() {
+        document.querySelector("p").style.display = "block";
+    }
+
+    function ocultar() {
+        document.querySelector("p").style.display = "none";
+    }
+</script>
+
+<body onload="ocultar()">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <button onclick="mostrar()">Mostrar</button>
+
+    <button onclick="ocultar()">Ocultar</button>
+</body>
+
+</html>
