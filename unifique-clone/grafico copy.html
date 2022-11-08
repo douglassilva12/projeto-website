@@ -1,3 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<body>
+
+    <h1>Exemplo Relatorios Google</h1>
+    <button onclick="getPaginaInicial()">Listar pagina inicial</button>
+    <button onclick="getTutoriais()">Listar tutoriais</button>
+    <button onclick="getPaises()">Listar paises</button>
+
+    <hr>
+    <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
+    <button onclick="gerarGraficoPaises('linechart')">Gerar Grafico de paises - Line Chart</button>
+    <button onclick="gerarGraficoPaises('columm')">Gerar Grafico de paises - Column Chart</button>
+
+    <!-- <div id="piechart"></div> -->
+    <div id="countrieschart"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript">
         function isTesteLocal() {
             return false;
         }
@@ -224,3 +245,7 @@
                     console.log('There has been a problem with your fetch operation: ' + error.message);
                 });
         }
+    </script>
+</body>
+
+</html>

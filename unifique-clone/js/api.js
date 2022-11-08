@@ -4,7 +4,7 @@
 // https://www.javascripttutorial.net/dom/events/add-an-event-handler/
 
 function getMedicosApiSupabase() {
-    callApi("GET", "medicos", undefined, function (data) {
+    callApi("GET", "medicos", undefined, function(data) {
 
     });
 }
@@ -17,7 +17,7 @@ function getFolha(limite) {
 
     let token_logado = localStorage.getItem('token_logado');
 
-    callApi("GET", "tbfolha", undefined, function (data) {
+    callApi("GET", "tbfolha", undefined, function(data) {
 
         const aDadosFolha = data;
         let body = document.querySelector(".containerTable-body");
@@ -26,7 +26,7 @@ function getFolha(limite) {
         body.innerHTML = "";
 
         let contaFolha = 1;
-        aDadosFolha.forEach(function (oFolha, key) {
+        aDadosFolha.forEach(function(oFolha, key) {
 
             // lista apenas o limite de folhas
             if (contaFolha <= limite) {
@@ -172,7 +172,7 @@ async function callApi(method, port, body, oCall) {
             }
 
         })
-        .catch(function (error) {
+        .catch(function(error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
 }

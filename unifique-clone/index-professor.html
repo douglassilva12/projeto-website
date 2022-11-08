@@ -1,5 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-US">
+
+<html lang="pt-br">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Title" content="Central do assinante - Rede Unifique">
+    <meta name="Author" content="www.unifique.com.br">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="Robots" content="All">
+    <meta name="Revisit" content="1 week">
+    <meta http-equiv="Content-Type" content="text/html; ISO-8859-1">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="https://unifique-clone.vercel.app/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://unifique-clone.vercel.app/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://unifique-clone.vercel.app/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://unifique-clone.vercel.app/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://unifique-clone.vercel.app/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://unifique-clone.vercel.app/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://unifique-clone.vercel.app/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://unifique-clone.vercel.app/apple-touch-icon-152x152.png">
+    <link rel="icon" type="image/png" href="https://unifique-clone.vercel.app/favicon-196x196.png" sizes="196x196">
+    <link rel="icon" type="image/png" href="https://unifique-clone.vercel.app/favicon-160x160.png" sizes="160x160">
+    <link rel="icon" type="image/png" href="https://unifique-clone.vercel.app/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="https://unifique-clone.vercel.app/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://unifique-clone.vercel.app/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="#253a76">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+
+    <!-- /favicon -->
     <title>Central do assinante - Rede Unifique</title>
     <link href="./unifique_files/jquery-ui-1.10.4.min.css" rel="stylesheet">
     <link href="./unifique_files/bootstrap.min.css" rel="stylesheet">
@@ -15,70 +47,317 @@
 
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/theme.css">
-<body>
 
-    <!-- <h1>Exemplo Relatorios Google</h1>
-    <button onclick="getPaginaInicial()">Listar pagina inicial</button>
-    <button onclick="getTutoriais()">Listar tutoriais</button>
-    <button onclick="getPaises()">Listar paises</button> -->
+    <script type="text/javascript" async="" src="./unifique_files/analytics.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/bootstrap.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jasny-bootstrap.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery.passstrength.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery.backstretch.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery-ui-1.10.4.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery.validate.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/bootstrap-select.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/bootstrap-colorpicker.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/jquery.dataTables.min.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/dataTables.bootstrap.js.download"></script>
+    <script type="text/javascript" src="./unifique_files/sweetalert2.all.min.js.download"></script>
 
-    <!-- <hr>
-    <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
-    <button onclick="gerarGraficoPaises('linechart')">Gerar Grafico de paises - Line Chart</button>
-    <button onclick="gerarGraficoPaises('columm')">Gerar Grafico de paises - Column Chart</button> -->
+    <script type="text/javascript" src="./unifique_files/init.js.download"></script>
 
-    <!-- <div id="piechart"></div> -->
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-    <script type="text/javascript">
-        function isTesteLocal() {
-            return false;
+    <style>
+        .float {
+            position: fixed;
+            font-family: 'Ubuntu', sans-serif;
+            width: 220px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            text-align: center;
+            font-size: 12px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
         }
 
-        // Load google charts
-        google.charts.load('current', {
-            'packages': ['corechart']
+        .my-float {
+            margin-top: 16px;
+        }
+
+        a.whats {
+            text-decoration: none;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            /* background-color: rgb(95, 255, 71); */
+        }
+
+        .centraliza-cabecalho {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<script>
+var TOKEN_SUPABASE = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E';
+
+function isTesteLocal() {
+    return false;
+}
+
+function loadDadosGoogle() {
+    // Load google charts
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+}
+
+// Carrega Grafico de paises
+function gerarGraficoPaises(tipoGrafico) {
+    loadDadosGoogle();
+    drawChartCountries(tipoGrafico);
+}
+
+function getTokenSupabase() {
+    return TOKEN_SUPABASE;
+}
+
+// Draw the chart and set the chart values
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 8],
+        ['Eat', 2],
+        ['TV', 4],
+        ['Gym', 2],
+        ['Sleep', 8]
+    ]);
+
+    // Optional; add a title and set the width and height of the chart
+    var options = {
+        'title': 'My Average Day',
+        'width': 550,
+        'height': 400
+    };
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+}
+
+function drawChartCountries(tipoGrafico) {
+
+    let quantidadeAsia = 0;
+    let quantidadeAmericaNorte = 0;
+    let quantidadeAmericaSul = 0;
+    let quantidadeOceania = 0;
+    let quantidadeAfrica = 0;
+    let quantidadeEuropa = 0;
+    let quantidadeAntarctica = 0;
+    let quantidadeIndefinido = 0;
+
+    let port = "countries";
+    if (isTesteLocal()) {
+        port = "countriestest";
+    }
+
+    callApi("GET", port, undefined, function(data) {
+        const paises = data;
+
+        // percorre os paises e conta quantos tem em cada continente
+        paises.forEach(function(oPais, key) {
+            if (oPais.continent != undefined) {
+                if (oPais.continent == "Oceania") {
+                    quantidadeOceania++;
+                } else if (oPais.continent == "North America") {
+                    quantidadeAmericaNorte++;
+                } else if (oPais.continent == "Africa") {
+                    quantidadeAfrica++;
+                } else if (oPais.continent == "Europe") {
+                    quantidadeEuropa++;
+                } else if (oPais.continent == "Antarctica") {
+                    quantidadeAntarctica++;
+                } else if (oPais.continent == "South America") {
+                    quantidadeAmericaSul++;
+                } else if (oPais.continent == "Asia") {
+                    quantidadeAsia++;
+                }
+            } else {
+                quantidadeIndefinido++;
+            }
         });
 
-        // google.charts.setOnLoadCallback(drawChart);
+        // apos contar os paises, seta os dados no grafico
+        // Lista a quantidade de paises por continente
+        var data = google.visualization.arrayToDataTable([
+            ['Task', 'Paises por continente'],
+            ['Asia', quantidadeAsia],
+            ['Oceania', quantidadeOceania],
+            ['America Norte', quantidadeAmericaNorte],
+            ['America Sul', quantidadeAmericaSul],
+            ['Africa', quantidadeAfrica],
+            ['Europa', quantidadeEuropa],
+            ['Antartica', quantidadeAntarctica],
+            ['Indefinido', quantidadeIndefinido],
+        ]);
 
-        // Carrega Grafico de paises
-        function gerarGraficoPaises(tipoGrafico) {
-            drawChartCountries(tipoGrafico);
+        // Optional; add a title and set the width and height of the chart
+        var options = {
+            'title': 'Lista de paises por continente',
+            'width': 550,
+            'height': 400
+        };
+
+        // default pega piechart
+        var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
+        if (tipoGrafico == "piechart") {
+            chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
+        } else if (tipoGrafico == "linechart") {
+            chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
+        } else if (tipoGrafico == "columm") {
+            chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
         }
 
-        function getTokenSupabase() {
-            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E";
+        chart.draw(data, options);
+    });
+}
 
-            // old
-            // return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E";
-        }
-        // Draw the chart and set the chart values
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
-            ]);
+function getPaginaInicial() {
+    callApi("GET", undefined, undefined, function(data) {});
+}
 
-            // Optional; add a title and set the width and height of the chart
-            var options = {
-                'title': 'My Average Day',
-                'width': 550,
-                'height': 400
-            };
+function getTutoriais() {
+    callApi("GET", "tutoriais", undefined, function(data) {});
+}
 
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+function getPaises() {
+    callApi("GET", "countries", undefined, function(data) {});
+}
 
-            chart.draw(data, options);
-        }
+function getUrlBase(port) {
+    return   "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
+    //return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
+}
 
-        function drawChartCountries(tipoGrafico) {
+function getMyInitFetchApi(method, body) {
+    let usaBody = false;
+    if (method == "POST") {
+        usaBody = true;
+    }
+
+    if (usaBody) {
+        return {
+            method: method,
+            //headers: getHeadersSupabase(),
+            mode: 'cors',
+            cache: 'no-cache',
+            body: JSON.stringify(body)
+        };
+    }
+
+    return {
+        method: method,
+        headers: getHeadersSupabase(),
+        mode: 'cors',
+        cache: 'no-cache'
+    };
+}
+
+function getHeadersSupabase() {
+    return new Headers({
+        "apikey": getTokenSupabase(),
+        "Authorization": "Bearer " + getTokenSupabase(),
+    });
+}
+
+async function callApi(method, port, body, oCall) {
+
+    if (body == undefined) {
+        body = "";
+    }
+
+    if (method == undefined) {
+        method = "GET";
+    }
+
+    if (port == undefined) {
+        port = "ping";
+    }
+
+    // Define a url
+    const url = getUrlBase(port);
+
+    console.log("url gerada:" + url);
+
+    const myInit = getMyInitFetchApi(method, body);
+
+    const promise = await fetch(url, myInit)
+        // Converting the response to a JSON object
+        .then(response => response.json())
+        .then(data => {
+            if (oCall) {
+                // Chama a function por parametor com os dados retornados...
+                oCall(data);
+            }
+        })
+        .catch(function(error) {
+            console.log('There has been a problem with your fetch operation: ' + error.message);
+        });
+}
+
+// TESTES DA API DO CLONE DA UNIFIQUE
+function listaFaturasUnifique() {
+
+    let quantidadeAsia = 0;
+    let quantidadeAmericaNorte = 0;
+    let quantidadeAmericaSul = 0;
+    let quantidadeOceania = 0;
+    let quantidadeAfrica = 0;
+    let quantidadeEuropa = 0;
+    let quantidadeAntarctica = 0;
+    let quantidadeIndefinido = 0;
+
+    let port = "countries";
+
+    callApi("GET", port, undefined, function(data) {
+        const paises = data;
+
+        // percorre os paises e conta quantos tem em cada continente
+        paises.forEach(function(oPais, key) {
+            if (oPais.continent != undefined) {
+                if (oPais.continent == "Oceania") {
+                    quantidadeOceania++;
+                } else if (oPais.continent == "North America") {
+                    quantidadeAmericaNorte++;
+                } else if (oPais.continent == "Africa") {
+                    quantidadeAfrica++;
+                } else if (oPais.continent == "Europe") {
+                    quantidadeEuropa++;
+                } else if (oPais.continent == "Antarctica") {
+                    quantidadeAntarctica++;
+                } else if (oPais.continent == "South America") {
+                    quantidadeAmericaSul++;
+                } else if (oPais.continent == "Asia") {
+                    quantidadeAsia++;
+                }
+            } else {
+                quantidadeIndefinido++;
+            }
+        });
+
+        // Preenche os dados na tabela de dados
+
+    });
+}
+
+function drawChartCountriesTest(tipoGrafico) {
 
             let quantidadeAsia = 0;
             let quantidadeAmericaNorte = 0;
@@ -120,8 +399,8 @@
                     }
                 });
 
-                // apos contar os paises, seta os dados no grafico
-                // Lista a quantidade de paises por continente
+                // // apos contar os paises, seta os dados no grafico
+                // // Lista a quantidade de paises por continente
                 // var data = google.visualization.arrayToDataTable([
                 //     ['Task', 'Paises por continente'],
                 //     ['Asia', quantidadeAsia],
@@ -156,111 +435,30 @@
 
         }
 
-        function getPaginaInicial() {
-            callApi("GET", undefined, undefined, function(data) {});
-        }
 
-        function getTutoriais() {
-            callApi("GET", "tutoriais", undefined, function(data) {});
-        }
+</script>
+<body>
 
-        function getPaises() {
-            callApi("GET", "countries", undefined, function(data) {});
-        }
-
-        function getUrlBase(port) {
-            if (isTesteLocal()) {
-                // CHAMADAS LOCAIS
-                return "http://localhost:8080/api/" + port;
-            }
-
-            //
-            // curl 'https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=id'\ -
-            //     H "apikey: SUPABASE_KEY"\ -
-            //     H "Authorization: Bearer SUPABASE_KEY"
-            //
-
-            // return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=id" + port;
-            return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
-
-            // return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=id";
-
-            // return "https://apijavasenac.herokuapp.com/api/" + port;
-        }
-
-        function getMyInitFetchApi(method, body) {
-            let usaBody = false;
-            if (method == "POST") {
-                usaBody = true;
-            }
-
-            if (usaBody) {
-                return {
-                    method: method,
-                    //headers: getHeadersSupabase(),
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    body: JSON.stringify(body)
-                };
-            }
-
-            return {
-                method: method,
-                //headers: getHeaders(),
-                headers: getHeadersSupabase(),
-                mode: 'cors',
-                cache: 'no-cache'
-            };
-        }
-
-        function getHeadersSupabase() {
-            return new Headers({
-                "apikey": getTokenSupabase(),
-                "Authorization": "Bearer " + getTokenSupabase(),
-            });
-        }
-
-        async function callApi(method, port, body, oCall) {
-
-            if (body == undefined) {
-                body = "";
-            }
-
-            if (method == undefined) {
-                method = "GET";
-            }
-
-            if (port == undefined) {
-                port = "ping";
-            }
-
-            // Define a url
-            const url = getUrlBase(port);
-
-            console.log("url gerada:" + url);
-
-            const myInit = getMyInitFetchApi(method, body);
-
-            const promise = await fetch(url, myInit)
-                // Converting the response to a JSON object
-                .then(response => response.json())
-                .then(data => {
-
-                    console.log(data);
-
-                    if (oCall) {
-                        // Chama a function por parametor com os dados retornados...
-                        oCall(data);
-                    }
-
-                })
-                .catch(function(error) {
-                    console.log('There has been a problem with your fetch operation: ' + error.message);
-                });
-        }
-    </script>
-
-    <!-- dados unifique -->
+    <noscript>
+        <div class="noscript-message">
+            <div align="center">
+                <img id="alert" src="/images/alert.png" alt="Alerta" />
+                <span>Habilite JavaScript ou atualize seu navegador para completa visualiza��o do site</span>
+                <div id="atualize">
+                    <a href="http://br.mozdev.org/download/" target="_blank">
+                        <img class="browser" alt="Mozilla Firefox" src="/images/firefox.png" />
+                    </a>
+                    <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx" target="_blank">
+                        <img class="browser" alt="Internet Explorer" src="/images/ie.png" />
+                    </a>
+                    <a href="http://www.google.com/chrome?hl=pt-BR" target="_blank">
+                        <img class="browser" alt="Google Chrome" src="/images/chrome.png" />
+                    </a>
+                    <p id="floating">Upgrade</p>
+                </div>
+            </div>
+        </div>
+    </noscript>
 
     <!-- Fixed navbar -->
     <div class="centraliza-cabecalho">
@@ -376,8 +574,6 @@
                                 </tr>`;
         }
     </script>
-
-<center>
     <div class="container">
         <br><br>
         <p class="title">Cobrancas pagas</p>
@@ -385,14 +581,11 @@
         <br>
         <br>
         <!-- Testando a api -->
-        <!-- <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
+        <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
         <button onclick="drawChartCountriesTest('piechart')">Get Paises</button>
-        <button onclick="getPaises()">Listar paises</button> -->
+        <button onclick="getPaises()">Listar paises</button>
 
-        <!-- novo -->
-        <div id="countrieschart"></div>
-        <button onclick="getPaises()">Listar paises Novo</button>
-
+        <button>load Dados Tabela</button>
         <table class="container-table" border="1">
             <thead>
                 <tr>
@@ -443,7 +636,10 @@
         </div>
     </div>
     <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1099px; width: 1259px; z-index: -999999; position: fixed;"></div>
-    </center>
 </body>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" defer></script>
+
+<!-- <script src="apiPaises.js" defer></script> -->
 
 </html>
