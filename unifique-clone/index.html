@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <title>Central do assinante - Rede Unifique</title>
-    <link href="./unifique_files/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <link href="./unifique_files/bootstrap.min.css" rel="stylesheet">
-    <link href="./unifique_files/bootstrap-select.min.css" rel="stylesheet">
-    <link href="./unifique_files/magic-bootstrap.css" rel="stylesheet">
-    <link href="./unifique_files/jasny-bootstrap.min.css" rel="stylesheet">
-    <link href="./unifique_files/bootstrap-colorpicker.min.css" rel="stylesheet">
-    <link href="https://unifique-clone.vercel.app/css/dataTables.bootstrap.css">
-    <link href="https://unifique-clone.vercel.app/css/sweetalert2.min.css">
-    <link href="./unifique_files/theme.css" rel="stylesheet">
-    <link rel="stylesheet" href="./unifique_files/font-awesome.min.css">
-    <link href="./unifique_files/css2" rel="stylesheet">
+<title>Central do assinante - Rede Unifique</title>
+<link href="./unifique_files/jquery-ui-1.10.4.min.css" rel="stylesheet">
+<link href="./unifique_files/bootstrap.min.css" rel="stylesheet">
+<link href="./unifique_files/bootstrap-select.min.css" rel="stylesheet">
+<link href="./unifique_files/magic-bootstrap.css" rel="stylesheet">
+<link href="./unifique_files/jasny-bootstrap.min.css" rel="stylesheet">
+<link href="./unifique_files/bootstrap-colorpicker.min.css" rel="stylesheet">
+<link href="https://unifique-clone.vercel.app/css/dataTables.bootstrap.css">
+<link href="https://unifique-clone.vercel.app/css/sweetalert2.min.css">
+<link href="./unifique_files/theme.css" rel="stylesheet">
+<link rel="stylesheet" href="./unifique_files/font-awesome.min.css">
+<link href="./unifique_files/css2" rel="stylesheet">
 
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/theme.css">
+<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="./css/theme.css">
+
+<style>
+    .float {
+        position: fixed;
+        font-family: 'Ubuntu', sans-serif;
+        width: 220px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #FFF;
+        text-align: center;
+        font-size: 12px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+    }
+    
+    .my-float {
+        margin-top: 16px;
+    }
+    
+    a.whats {
+        text-decoration: none;
+    }
+    
+    .container {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        flex-direction: column;
+        /* background-color: rgb(95, 255, 71); */
+    }
+    
+    .centraliza-cabecalho {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .containerTable-body {
+        overflow: scroll;
+    }
+</style>
+
 <body>
-
-    <!-- <h1>Exemplo Relatorios Google</h1>
-    <button onclick="getPaginaInicial()">Listar pagina inicial</button>
-    <button onclick="getTutoriais()">Listar tutoriais</button>
-    <button onclick="getPaises()">Listar paises</button> -->
-
-    <!-- <hr>
-    <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
-    <button onclick="gerarGraficoPaises('linechart')">Gerar Grafico de paises - Line Chart</button>
-    <button onclick="gerarGraficoPaises('columm')">Gerar Grafico de paises - Column Chart</button> -->
-
-    <!-- <div id="piechart"></div> -->
-
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript">
@@ -36,136 +69,52 @@
             return false;
         }
 
-        // Load google charts
-        google.charts.load('current', {
-            'packages': ['corechart']
-        });
-
-        // google.charts.setOnLoadCallback(drawChart);
-
-        // Carrega Grafico de paises
-        function gerarGraficoPaises(tipoGrafico) {
-            drawChartCountries(tipoGrafico);
-        }
-
         function getTokenSupabase() {
-            return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E";
+            return "TOKEN-ALUNO";
 
-            // old
             // return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZkY3N6cXZ2cndkcWNuanZjb3h0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjAyNTUxNTUsImV4cCI6MTk3NTgzMTE1NX0.U-3HSFgKo9ydTnKrpQsx5ytrBcLSpGwzVn6LqNwn14E";
-        }
-        // Draw the chart and set the chart values
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Task', 'Hours per Day'],
-                ['Work', 8],
-                ['Eat', 2],
-                ['TV', 4],
-                ['Gym', 2],
-                ['Sleep', 8]
-            ]);
-
-            // Optional; add a title and set the width and height of the chart
-            var options = {
-                'title': 'My Average Day',
-                'width': 550,
-                'height': 400
-            };
-
-            // Display the chart inside the <div> element with id="piechart"
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
-        }
-
-        function drawChartCountries(tipoGrafico) {
-
-            let quantidadeAsia = 0;
-            let quantidadeAmericaNorte = 0;
-            let quantidadeAmericaSul = 0;
-            let quantidadeOceania = 0;
-            let quantidadeAfrica = 0;
-            let quantidadeEuropa = 0;
-            let quantidadeAntarctica = 0;
-            let quantidadeIndefinido = 0;
-
-            let port = "countries";
-            if (isTesteLocal()) {
-                port = "countriestest";
-            }
-
-            callApi("GET", port, undefined, function(data) {
-                const paises = data;
-
-                // percorre os paises e conta quantos tem em cada continente
-                paises.forEach(function(oPais, key) {
-                    if (oPais.continent != undefined) {
-                        if (oPais.continent == "Oceania") {
-                            quantidadeOceania++;
-                        } else if (oPais.continent == "North America") {
-                            quantidadeAmericaNorte++;
-                        } else if (oPais.continent == "Africa") {
-                            quantidadeAfrica++;
-                        } else if (oPais.continent == "Europe") {
-                            quantidadeEuropa++;
-                        } else if (oPais.continent == "Antarctica") {
-                            quantidadeAntarctica++;
-                        } else if (oPais.continent == "South America") {
-                            quantidadeAmericaSul++;
-                        } else if (oPais.continent == "Asia") {
-                            quantidadeAsia++;
-                        }
-                    } else {
-                        quantidadeIndefinido++;
-                    }
-                });
-
-                // apos contar os paises, seta os dados no grafico
-                // Lista a quantidade de paises por continente
-                // var data = google.visualization.arrayToDataTable([
-                //     ['Task', 'Paises por continente'],
-                //     ['Asia', quantidadeAsia],
-                //     ['Oceania', quantidadeOceania],
-                //     ['America Norte', quantidadeAmericaNorte],
-                //     ['America Sul', quantidadeAmericaSul],
-                //     ['Africa', quantidadeAfrica],
-                //     ['Europa', quantidadeEuropa],
-                //     ['Antartica', quantidadeAntarctica],
-                //     ['Indefinido', quantidadeIndefinido],
-                // ]);
-
-                // // Optional; add a title and set the width and height of the chart
-                // var options = {
-                //     'title': 'Lista de paises por continente',
-                //     'width': 550,
-                //     'height': 400
-                // };
-
-                // // default pega piechart
-                // var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // if (tipoGrafico == "piechart") {
-                //     chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "linechart") {
-                //     chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "columm") {
-                //     chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
-                // }
-
-                // chart.draw(data, options);
-            });
-
-        }
-
-        function getPaginaInicial() {
-            callApi("GET", undefined, undefined, function(data) {});
-        }
-
-        function getTutoriais() {
-            callApi("GET", "tutoriais", undefined, function(data) {});
         }
 
         function getPaises() {
-            callApi("GET", "countries", undefined, function(data) {});
+            data = {};
+            callApi("GET", "countries", undefined, function(data) {
+                loadDadosPaises(data);
+            });
+        }
+
+        function loadDadosPaises(data) {
+            debugger;
+
+            const paises = data;
+
+            let bodyTable = document.querySelector(".containerTable-body");
+            // reset da tabela
+            bodyTable.innerHTML = '';
+
+            let quantidadeIndefinido = 1;
+            // percorre os paises e conta quantos tem em cada continente
+            paises.forEach(function(oPais, key) {
+                let continent = "CONTINENTE VAZIO";
+                if (oPais.continent != undefined) {
+                    id = oPais.id;
+                    name = oPais.name;
+                    continent = oPais.continent;
+
+                    debugger;
+
+                    // colocando pais na tabela de html
+                    bodyTable.innerHTML += `<tr>
+                                            <td>${id}</td>
+                                            <td>${name}</td>
+                                            <td>${continent}</td>
+                                        </tr>`;
+                } else {
+                    quantidadeIndefinido++;
+                }
+
+            });
+
+
         }
 
         function getUrlBase(port) {
@@ -221,6 +170,7 @@
         }
 
         async function callApi(method, port, body, oCall) {
+            debugger;
 
             if (body == undefined) {
                 body = "";
@@ -249,7 +199,7 @@
                     console.log(data);
 
                     if (oCall) {
-                        // Chama a function por parametor com os dados retornados...
+                        // Chama a function por parametro com os dados retornados...
                         oCall(data);
                     }
 
@@ -316,133 +266,67 @@
         </ul>
     </div>
     <div style="clear:both;"></div>
-    <script>
-        function registraLog(operacao) {
-            // $.ajax({
-            //     url: "/gerenciar/logsController",
-            //     type: "POST",
-            //     data: {
-            //         acao: 'gerarLogs',
-            //         operacao: operacao
-            //     },
-            //     success: function(retorno) {
-            //         console.log(retorno);
-            //     }
-            // });
-        }
 
-        function loadDados() {
-            let bodyTable = document.querySelector(".containerTable-body");
+    <center>
+        <div class="container">
+            <br><br>
+            <p class="title">Cobrancas pagas</p>
+            <div id="countrieschart"></div>
+            <button onclick="getPaises()">Listar paises Novo</button>
 
-            // reset da tabela
-            bodyTable.innerHTML = "";
+            <table class="container-table" border="1">
+                <thead>
+                    <tr>
+                        <th class="containerTable-lblTitle">id</th>
+                        <th class="containerTable-lblTitle">Continente</th>
+                        <th class="containerTable-lblTitle">Pais</th>
+                    </tr>
+                </thead>
+                <!-- .containerTable-body -->
+                <tbody class="containerTable-body">
+                    <!--PREENCHIDO ATRAVES DE JAVASCRIPT!!!-->
+                </tbody>
+            </table>
+        </div>
+        <!-- /.container -->
 
-            // pega a lista de dados da API
-            aListaDados = 1;
-
-
-            aListaDados.forEach(
-                // function(value, key) {
-                //     debugger;
-                //     // ver o que aparece aqui
-                //     var valorTexto = value.innerText;
-
-                //     // setar os dados numa tabela
-                //     // mostrar String Literals  daqui....
-                //     bodyTable.innerHTML += `<tr>
-                //                         <td>${valorTexto}</td>
-                //                 </tr>`;
-                // }
-
-                // chamando externamente
-                //);
-
-                function(value, key) {
-                    loadDados(value, key, bodyTable);
-                }
-            );
-
-        }
-
-
-        function loadDados(value, key, bodyTable) {
-            debugger;
-            // ver o que aparece aqui
-            var valorTexto = value.innerText;
-            // setar os dados numa tabela
-            // mostrar String Literals  daqui....
-            bodyTable.innerHTML += `<tr>
-                                    <td>${valorTexto}</td>
-                                </tr>`;
-        }
-    </script>
-
-<center>
-    <div class="container">
-        <br><br>
-        <p class="title">Cobrancas pagas</p>
-        <br>
-        <br>
-        <br>
-        <!-- Testando a api -->
-        <!-- <button onclick="gerarGraficoPaises('piechart')">Gerar Grafico de paises - Pie Chart</button>
-        <button onclick="drawChartCountriesTest('piechart')">Get Paises</button>
-        <button onclick="getPaises()">Listar paises</button> -->
-
-        <!-- novo -->
-        <div id="countrieschart"></div>
-        <button onclick="getPaises()">Listar paises Novo</button>
-
-        <table class="container-table" border="1">
-            <thead>
-                <tr>
-                    <th class="containerTable-lblTitle">Conteudo da Tabela</th>
-                </tr>
-            </thead>
-            <tbody class="containerTable-body">
-                <!--PREENCHIDO ATRAVES DE JAVASCRIPT!!!-->
-            </tbody>
-        </table>
-    </div>
-    <!-- /.container -->
-
-    <!-- FrameModal -->
-    <div class="modal fade bs-example-modal-lg" id="frameModal" tabindex="-1" role="dialog" aria-labelledby="frameModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                    <a href="https://unifique-clone.vercel.app/cobrancas/pagas/#" class="close help">?</a>
-                    <h4 class="modal-title" id="frameModalLabel"></h4>
-                </div>
-                <div class="modal-body">
-                </div>
-                <div class="modal-footer">
-                    <div id="loadingProgressG">
-                        <div class="loadingText">Carregando aguarde...</div>
-                        <div id="loadingProgressG_1" class="loadingProgressG"></div>
+        <!-- FrameModal -->
+        <div class="modal fade bs-example-modal-lg" id="frameModal" tabindex="-1" role="dialog" aria-labelledby="frameModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                        <a href="https://unifique-clone.vercel.app/cobrancas/pagas/#" class="close help">?</a>
+                        <h4 class="modal-title" id="frameModalLabel"></h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <div id="loadingProgressG">
+                            <div class="loadingText">Carregando aguarde...</div>
+                            <div id="loadingProgressG_1" class="loadingProgressG"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /FrameModal -->
+        <!-- /FrameModal -->
 
-    <!-- Modal -->
-    <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
-                    <button type="button">?</button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                </div>
-                <div class="modal-body">
+        <!-- Modal -->
+        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                        <button type="button">?</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1099px; width: 1259px; z-index: -999999; position: fixed;"></div>
+        <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 1099px; width: 1259px; z-index: -999999; position: fixed;"></div>
     </center>
 </body>
 
