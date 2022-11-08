@@ -20,6 +20,7 @@ https://projetos-web-senac.vercel.app/PROJETOS-WEB/aplicativosweb.html
         * JavaScript - Manipulacao do DOM e chamadas de APIS REST - SupaBase - unifique-clone
     
     #Aula 08-11-2022   
+        * Explicação de fetch API - https://www.braziljs.org/p/fetch-api-e-o-javascript
         * JavaScript - Manipulacao do DOM e chamadas de APIS REST - SupaBase - unifique-clone
     
     #Aula 09-11-2022   
