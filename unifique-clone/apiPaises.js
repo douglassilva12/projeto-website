@@ -135,7 +135,8 @@ function getPaises() {
 }
 
 function getUrlBase(port) {
-    return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
+    return   "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
+    //return "https://vdcszqvvrwdqcnjvcoxt.supabase.co/rest/v1/countries?select=*";
 }
 
 function getMyInitFetchApi(method, body) {
