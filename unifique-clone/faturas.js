@@ -6,7 +6,7 @@ function onLoadPaginas() {
 }
 
 function isLoadDadosFixos() {
-    return true;
+    return false;
 }
 
 function atualizaFaturas(status) {
@@ -90,14 +90,61 @@ $(document).on("click", ".open-detalheFatura", function () {
 
     // Seta o id da fatura no modal
     $(".modal-body #idfatura").val(idFatura);
+
+    // chama a api para carregar os detalhes da fatura
+    loadDadosFatura(idFatura);
 });
 
 function loadDadosFatura(idFatura) {
-    // criar a tabela de detalhes da fatura
+    // criar a tabela de detalhes da fatura - ok
 
     // Chamar a api do supabase
+    // Chama a api da Supabase
+    data = {};
+    port = "tbfaturadetalhe?idfatura=eq." + idFatura + "&";
+    callApi("GET", port, undefined, function (data) {
+        // Setar os dados da fatura no modal
+        loadDadosFaturaDetalhe(data);
+    });
+}
 
-    // criar a tabela de detalhes da fatura
+function loadDadosFaturaDetalhe(data) {
+    const faturasDetalhe = data;
+    debugger;
 
-    // Setar os dados da fatura no modal
+    let bodyTable = document.querySelector(".containerTableDetalhe-body");
+    // reset da tabela
+    bodyTable.innerHTML = '';
+
+    let temDados = false;
+    if (parseInt(faturasDetalhe.length) > 0) {
+        temDados = true;
+    }
+
+    if (temDados) {
+        faturasDetalhe.forEach(function (oFaturaDetalhe, key) {
+            const id = oFaturaDetalhe.id;
+            const idfaturaApi = oFaturaDetalhe.idfatura;
+            const circuito = oFaturaDetalhe.circuito;
+            const codigoservico = oFaturaDetalhe.codigoservico;
+            const descricaoservico = oFaturaDetalhe.descricaoservico;
+            const datainicioservico = oFaturaDetalhe.datainicioservico;
+            const datafimservico = oFaturaDetalhe.datafimservico;
+            const valorservico = oFaturaDetalhe.valorservico;
+
+            // colocando os detalhes da faturas na tabela de html
+            bodyTable.innerHTML += `<tr>
+                                            <td>${descricaoservico}</td>
+                                            <td>${datainicioservico}</td>
+                                            <td>${datafimservico}</td>
+                                            <td>${circuito}</td>
+                                            <td>${valorservico}</td>
+                                        </tr>`;
+
+        });
+    } else {
+        bodyTable.innerHTML = `<tr>
+                                    <td colspan="5" style="color:red;font-size:25px; text-align:center;">Fatura sem Detalhes!</td>
+                                </tr>`;
+    }
 }
