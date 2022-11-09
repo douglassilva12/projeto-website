@@ -109,36 +109,36 @@
 
                 // apos contar os paises, seta os dados no grafico
                 // Lista a quantidade de paises por continente
-                // var data = google.visualization.arrayToDataTable([
-                //     ['Task', 'Paises por continente'],
-                //     ['Asia', quantidadeAsia],
-                //     ['Oceania', quantidadeOceania],
-                //     ['America Norte', quantidadeAmericaNorte],
-                //     ['America Sul', quantidadeAmericaSul],
-                //     ['Africa', quantidadeAfrica],
-                //     ['Europa', quantidadeEuropa],
-                //     ['Antartica', quantidadeAntarctica],
-                //     ['Indefinido', quantidadeIndefinido],
-                // ]);
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Paises por continente'],
+                    ['Asia', quantidadeAsia],
+                    ['Oceania', quantidadeOceania],
+                    ['America Norte', quantidadeAmericaNorte],
+                    ['America Sul', quantidadeAmericaSul],
+                    ['Africa', quantidadeAfrica],
+                    ['Europa', quantidadeEuropa],
+                    ['Antartica', quantidadeAntarctica],
+                    ['Indefinido', quantidadeIndefinido],
+                ]);
 
-                // // Optional; add a title and set the width and height of the chart
-                // var options = {
-                //     'title': 'Lista de paises por continente',
-                //     'width': 550,
-                //     'height': 400
-                // };
+                // Optional; add a title and set the width and height of the chart
+                var options = {
+                    'title': 'Lista de paises por continente',
+                    'width': 550,
+                    'height': 400
+                };
 
-                // // default pega piechart
-                // var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // if (tipoGrafico == "piechart") {
-                //     chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "linechart") {
-                //     chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
-                // } else if (tipoGrafico == "columm") {
-                //     chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
-                // }
+                // default pega piechart
+                var chart = ""; //new google.visualization.PieChart(document.getElementById('countrieschart'));
+                if (tipoGrafico == "piechart") {
+                    chart = new google.visualization.PieChart(document.getElementById('countrieschart'));
+                } else if (tipoGrafico == "linechart") {
+                    chart = new google.visualization.LineChart(document.getElementById('countrieschart'));
+                } else if (tipoGrafico == "columm") {
+                    chart = new google.visualization.ColumnChart(document.getElementById('countrieschart'));
+                }
 
-                // chart.draw(data, options);
+                chart.draw(data, options);
             });
 
         }

@@ -7,10 +7,7 @@
   "editor.fontSize": 17,
   "javascript.suggest.autoImports": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.rulers": [
-    80,
-    120
-  ],
+  "editor.rulers": [80, 120],
   "extensions.ignoreRecommendations": true,
   "typescript.tsserver.log": "off",
   "files.associations": {
@@ -39,7 +36,7 @@
     "dotenv": "tune"
   },
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "workbench.colorTheme": "Omni",
+  "workbench.colorTheme": "Visual Studio Dark",
   "material-icon-theme.files.associations": {
     "tsconfig.json": "tune",
     "*.webpack.js": "webpack",
@@ -133,20 +130,18 @@
   "editor.tabSize": 4,
   "security.workspace.trust.untrustedFiles": "newWindow",
   "files.exclude": {
-    "**\/CVS": true,
-    "**\/.DS_Store": true,
-    "**\/.hg": true,
-    "**\/.svn": true,
-    "**\/.git": true
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/.git": true
   },
   "tabnine.experimentalAutoImports": true,
   "gitlens.codeLens.enabled": false,
   "workbench.iconTheme": "material-icon-theme",
   "files.autoSave": "off",
   "files.trimTrailingWhitespace": true,
-  "java.project.sourcePaths": [
-    "src"
-  ],
+  "java.project.sourcePaths": ["src"],
   "compile-hero.disable-compile-files-on-did-save-code": true,
   "editor.formatOnPaste": true
 }
