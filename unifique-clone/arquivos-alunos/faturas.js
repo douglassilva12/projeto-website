@@ -7,7 +7,7 @@
 
 function getPaises() {
     data = {};
-    callApi("GET", "countries", undefined, function(data) {
+    callApi("GET", "countries", undefined, function (data) {
         loadDadosPaises(data);
     });
 }
@@ -21,7 +21,7 @@ function loadDadosPaises(data) {
 
     let quantidadeIndefinido = 1;
     // percorre os paises e conta quantos tem em cada continente
-    paises.forEach(function(oPais, key) {
+    paises.forEach(function (oPais, key) {
         let continent = "CONTINENTE VAZIO";
         if (oPais.continent != undefined) {
             id = oPais.id;
@@ -120,7 +120,7 @@ async function callApi(method, port, body, oCall) {
             }
 
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log('There has been a problem with your fetch operation: ' + error.message);
         });
 }
@@ -129,7 +129,7 @@ function atualizaFaturas(status) {
     port = "tbfatura?status=eq." + status + "&";
 
     data = {};
-    callApi("GET", port, undefined, function(data) {
+    callApi("GET", port, undefined, function (data) {
         loadFaturas(data);
     });
 }
@@ -149,7 +149,7 @@ function loadFaturas(data) {
     }
 
     if (temDados) {
-        faturas.forEach(function(oFatura, key) {
+        faturas.forEach(function (oFatura, key) {
             const id = oFatura.id;
             const datapagamento = oFatura.datapagamento;
             const datavencimento = oFatura.datavencimento;
